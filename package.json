@@ -8,6 +8,7 @@
     "@mdx-js/mdx": "^1.6.6",
     "@mdx-js/react": "^1.6.6",
     "babel-plugin-styled-components": "^1.10.7",
+    "cross-env": "^7.0.2",
     "focus-visible": "^5.1.0",
     "gatsby": "^2.23.7",
     "gatsby-background-image": "^1.1.1",
@@ -62,11 +63,10 @@
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop",
-    "clean": "rm -rf ./cache",
-    "dev": "yarn clean && yarn develop",
+    "develop": "cross-env GATSBY_GRAPHQL_IDE=playground TINA_GIT_DEBOUNCE_MS=3000 gatsby develop",
+    "clean": "gatsby clean",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "yarn develop",
+    "start": "npm run develop",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing \""
   },
